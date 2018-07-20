@@ -1,0 +1,19 @@
+# Client Query
+{
+  pushanPersonal: user(login: "pushanbhattacharya") {
+    ...userDetails
+  }
+  pushanOfficical: user(login: "pushanDev") {
+    ...userDetails
+  }
+}
+
+# Fragment Declaration
+fragment userDetails on User {
+  name
+  email
+  office: company
+  repositories {
+    totalCount
+  }
+}

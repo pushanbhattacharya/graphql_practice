@@ -1,0 +1,16 @@
+#   Query Definition
+query getNameAndDetails($id: String!, $hire: Boolean!) {
+  user(login: $id) {
+    name
+    email
+    office: company
+    repositories {
+      totalCount
+    }
+    isHireable @include(if: $hire)
+  }
+}
+
+
+#   Query Variables
+{"id": "pushanbhattacharya", "hire": true}
